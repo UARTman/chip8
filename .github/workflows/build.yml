@@ -1,4 +1,4 @@
-name: build the system
+name: Build the executables
 on: [push]
 jobs:
   build-ubuntu:
@@ -23,5 +23,27 @@ jobs:
           command: build
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: debug-linux
           path: target/debug/chip8
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: debug-windows
+          path: target/debug/chip8.exe
