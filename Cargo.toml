@@ -9,6 +9,13 @@ publish = false
 optimize = ["log/release_max_level_warn"]
 default = ["optimize"]
 
+[profile.release]
+opt-level = 'z'     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = 'abort'     # Abort on panic
+
+
 [dependencies]
 egui = "0.10"
 egui_wgpu_backend = { git = "https://github.com/hasenbanck/egui_wgpu_backend.git", rev = "9d03ad345d15d1e44165849b242d3562fdf3e859" }
