@@ -1,0 +1,22 @@
+[package]
+name = "chip8"
+version = "0.1.0"
+authors = ["Jay Oster <jay@kodewerx.org>"]
+edition = "2018"
+publish = false
+
+[features]
+optimize = ["log/release_max_level_warn"]
+default = ["optimize"]
+
+[dependencies]
+egui = "0.10"
+egui_wgpu_backend = { git = "https://github.com/hasenbanck/egui_wgpu_backend.git", rev = "9d03ad345d15d1e44165849b242d3562fdf3e859" }
+egui_winit_platform = { git = "https://github.com/hasenbanck/egui_winit_platform.git", rev = "17298250e9721e8bf2c1d4a17b3e22777f8cb2e8" }
+log = "0.4"
+pixels = { git = "https://github.com/parasyte/pixels.git", rev="9bfed17a7f51733f9042b3b524405229c628003b"}
+winit = "0.24"
+winit_input_helper = "0.9"
+simple_logger = "*"
+rand = "*"
+rfd = "*"
