@@ -41,7 +41,6 @@ impl super::Cpu {
                     if self.sp == 0 {
                         error!("Trying to return with empty stack! Execution halted.");
                         self.pause();
-                        return;
                         // panic!("{:?}", self.execution_state)
                     } else {
                         self.sp -= 1;

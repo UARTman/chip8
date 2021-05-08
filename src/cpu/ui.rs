@@ -32,7 +32,7 @@ impl super::Cpu {
             ui.set_enabled(self.execution_state == ExecutionState::Paused);
             ui.label("Program counter:");
             ui.add(
-                egui::DragValue::u16(&mut self.pc).clamp_range(0x200 as f32..=4096 as f32), // .prefix("Program Counter:"),
+                egui::DragValue::u16(&mut self.pc).clamp_range(0x200 as f32..=4096_f32), // .prefix("Program Counter:"),
             );
         });
 

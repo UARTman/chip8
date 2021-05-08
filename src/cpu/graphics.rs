@@ -10,7 +10,7 @@ impl super::Cpu {
         Decon::new(line)
             .enumerate()
             .map(|(idx, px)| self.draw_pixel(x + idx, y % 32, px))
-            .fold(false, |x, y| x || y)
+            .any(|y| y)
     }
 
     pub fn draw_sprite(&mut self, x: usize, y: usize, sprite: &[u8]) -> bool {
@@ -18,7 +18,7 @@ impl super::Cpu {
             .iter()
             .enumerate()
             .map(|(idx, &line)| self.draw_line(x, y + idx, line))
-            .fold(false, |x, y| x || y)
+            .any(|y| y)
     }
 }
 

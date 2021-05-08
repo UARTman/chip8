@@ -100,7 +100,7 @@ impl Gui {
                             if let Ok(mut file) = std::fs::File::open(file) {
                                 use std::io::Read;
                                 let mut rom = Vec::new();
-                                if let Ok(_) = file.read_to_end(&mut rom) {
+                                if file.read_to_end(&mut rom).is_ok() {
                                     self.world.cpu.load_rom(&rom)
                                 }
                             }
