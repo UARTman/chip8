@@ -20,8 +20,6 @@ mod world;
 const WIDTH: u32 = 640;
 const HEIGHT: u32 = 320;
 
-/// Representation of the application state. In this example, a box will bounce around the screen.
-
 fn main() -> Result<(), Error> {
     SimpleLogger::new()
         .with_level(log::LevelFilter::Off)
